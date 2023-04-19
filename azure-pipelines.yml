@@ -17,12 +17,13 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
 - task: Ansible@0
   inputs:
     ansibleInterface: 'remoteMachine'
     connectionOverSsh: 'Ansible-Core'
     playbookSourceRemoteMachine: 'agentMachine'
-    playbookRootRemoteMachine: 'apache-play.yaml'
+    playbookRootRemoteMachine: '.'
     playbookPathLinkedArtifactOnRemoteMachine: '/home/cloud_user'
     inventoriesRemoteMachine: 'inlineContent'
-    inventoryInlineContentRemoteMachine: 'localhost'
+    inventoryInlineContentRemoteMachine: '13.212.27.71'
