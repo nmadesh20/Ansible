@@ -1,0 +1,9 @@
+---
+- hosts: core
+  vars_prompt:
+    - name: share_user
+      prompt: "What is your username?"
+      default: username
+    - name: share_pass
+      prompt: "What is your network password?"
+      private: yes

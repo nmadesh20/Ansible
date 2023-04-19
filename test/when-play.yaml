@@ -1,0 +1,19 @@
+---
+- hosts: rhel 
+  vars:
+    is_db_server: true
+
+  tasks:
+    - name: Testing when 
+      yum:
+        name: mysql-server
+        state: present
+      when: (is_db_server is defined) and is_db_server
+
+    - name: Debug 
+      command:  whoami
+      register: user
+
+    - name: Output
+      debug: 
+        msg: user.stdout 

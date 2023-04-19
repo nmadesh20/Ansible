@@ -1,0 +1,7 @@
+---
+- hosts: docker
+  tasks:
+    - name: Copy Dockerfile 
+      copy:
+        src: Dockerfile
+        dest: /home/cloud_user/test

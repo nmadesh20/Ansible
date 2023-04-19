@@ -1,0 +1,13 @@
+---
+- hosts: docker 
+  gather_facts: false
+  pre_tasks:
+    - name: Check if docker process is running
+      systemd:
+        name: docker
+        state: started
+      register: docker
+  tasks:
+    - include: tasks/DockerCopy.yaml
+      when: docker.state
+    
